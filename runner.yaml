@@ -1,6 +1,6 @@
 runner:
-  name: Scan Script Vulners
-  description: Scan Script Vulners (-sV --script vulners)
+  name: Scan Script VulScan
+  description: Scan Script VulScan (-sV --script vulscan)
   version: 0.0.1
 
 build:
