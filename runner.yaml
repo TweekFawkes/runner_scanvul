@@ -1,0 +1,25 @@
+runner:
+  name: Scan Script Vulners
+  description: Scan Script Vulners (-sV --script vulners)
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building the runner"
+    apt install -y nmap
+    git clone https://github.com/scipag/vulscan /tmp/scipag_vulscan
+    mkdir -p /usr/share/nmap/scripts/vulscan
+    cp -r /tmp/scipag_vulscan /usr/share/nmap/scripts/vulscan
+    echo "END: Building the runner"
+
+webform:
+  - name: ip_address
+    prompt: IP Address
+    type: text
+  - name: tcp_port
+    prompt: TCP Port
+    type: text
+
+launch:
+  type: binary
+  command: /usr/bin/nmap -Pn -n -sV --script=vulscan/vulscan.nse -p ${tcp_port} --reason -oA outputs/ ${ip_address}
