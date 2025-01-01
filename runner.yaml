@@ -9,7 +9,7 @@ build:
     apt install -y nmap
     git clone https://github.com/scipag/vulscan /tmp/scipag_vulscan
     mkdir -p /usr/share/nmap/scripts/vulscan
-    cp -r /tmp/scipag_vulscan /usr/share/nmap/scripts/vulscan
+    cp -r /tmp/scipag_vulscan/* /usr/share/nmap/scripts/vulscan
     echo "END: Building the runner"
 
 webform:
